@@ -1,6 +1,8 @@
 import { WordDocument } from './word-document';
 import { DocumentParser } from './document-parser';
 import { HtmlRenderer } from './html-renderer';
+import { ChartElement } from './chart/chart';
+import { IDomChart } from './document/dom';
 
 export interface Options {
     inWrapper: boolean;
@@ -20,6 +22,7 @@ export interface Options {
 	useBase64URL: boolean;
 	renderChanges: boolean;
     renderComments: boolean;
+    renderCharts: Record<string, (chart: ChartElement) => IDomChart>;
 }
 
 export const defaultOptions: Options = {
@@ -39,6 +42,20 @@ export const defaultOptions: Options = {
 	renderEndnotes: true,
 	useBase64URL: false,
 	renderChanges: false,
+    /**
+	 * 指定chart1渲染方法
+	 * chart1: (chart: ChartElement) => IDomChart
+	 * 
+	 * 折线图渲染方法（非组合图表）
+	 * lineChart: (chart: ChartElement) => IDomChart
+	 * 
+	 * 默认渲染方法（非组合图表可用）
+	 * defaultRender: (chart: ChartElement) => IDomChart
+	 * 
+	 * 组合图表渲染方法
+	 * mixedChart: (chart: ChartElement) => IDomChart
+	 */
+    renderCharts: {},
     renderComments: false
 }
 

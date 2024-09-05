@@ -1,7 +1,7 @@
 import { WordDocument } from './word-document';
 import {
 	DomType, WmlTable, IDomNumbering,
-	WmlHyperlink, IDomImage, OpenXmlElement, WmlTableColumn, WmlTableCell, WmlText, WmlSymbol, WmlBreak, WmlNoteReference,
+	WmlHyperlink, IDomImage, IDomChart, OpenXmlElement, WmlTableColumn, WmlTableCell, WmlText, WmlSymbol, WmlBreak, WmlNoteReference,
 	WmlSmartTag
 } from './document/dom';
 import { CommonProperties } from './document/common';
@@ -745,6 +745,9 @@ section.${c}>footer { z-index: 1; }
 			case DomType.Image:
 				return this.renderImage(elem as IDomImage);
 
+			case DomType.Chart:
+				return this.renderChart(elem as IDomChart);
+
 			case DomType.Text:
 				return this.renderText(elem as WmlText);
 
@@ -1036,6 +1039,17 @@ section.${c}>footer { z-index: 1; }
 			}));
 		}
 
+		return result;
+	}
+
+	renderChart(elem: IDomChart) {
+		let result = this.createElement("div");
+		this.renderStyleValues(elem.cssStyle, result);
+	
+		if (elem.child) {
+			result.appendChild(elem.child);
+
+		}
 		return result;
 	}
 

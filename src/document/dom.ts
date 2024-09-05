@@ -12,6 +12,7 @@ export enum DomType {
     Drawing = "drawing",
     Image = "image",
     Text = "text",
+    Chart = "chart",
     Tab = "tab",
     Symbol = "symbol",
     BookmarkStart = "bookmarkStart",
@@ -132,6 +133,13 @@ export interface WmlTableCell extends OpenXmlElement {
 
 export interface IDomImage extends OpenXmlElement {
     src: string;
+}
+
+export interface IDomChart extends OpenXmlElement {
+    /**
+     * 子节点
+     */
+    child: Node;
 }
 
 export interface WmlTableColumn {
