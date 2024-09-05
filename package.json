@@ -1,17 +1,18 @@
 {
-  "name": "docx-preview",
-  "version": "0.3.2",
+  "name": "docx-preview-enhance",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "keywords": [
     "word",
     "docx"
   ],
+  "description": "基于docx-preview，增加对图表的支持",
   "author": {
-    "name": "Volodymyr Baydalka"
+    "name": "fyh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zVolodymyr/docxjs.git"
+    "url": "git+https://github.com/superffan/docxjs.git"
   },
   "dependencies": {
     "jszip": ">=3.0.0"

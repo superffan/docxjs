@@ -14,7 +14,7 @@ That means library is limited by HTML capabilities (for example Google Docs rend
 Installation
 -----
 ```
-npm install docx-preview
+npm install docx-preview-enhance
 ```
 
 Usage
